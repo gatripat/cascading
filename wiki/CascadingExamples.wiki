@@ -4,8 +4,11 @@
 
 Details in using the examples provided as separate downloads.
 
+= Example Details
+ * ApacheLogCascade
 
-= Details =
+
+= Running =
 
 Two sample applications, with source are provided on the downloads page. 
 
