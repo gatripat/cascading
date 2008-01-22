@@ -8,7 +8,7 @@ Internally, the second flow is actually two map/reduce jobs since there are two 
 
 Since these flow instances were connected into a Cascade instance, they can be executed atomically (but they can be reused in other Cascade instances). The first time the Cascade is run, all the flows will execute and all the files will be generated. If the Cascade is run a second time, and the original log file is the same and has not changed, no flows will be executed, as there is no need.
 
-{{{#!java
+{{{
     FlowConnector flowConnector = new FlowConnector();
     CascadeConnector cascadeConnector = new CascadeConnector();
 
