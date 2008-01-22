@@ -7,6 +7,7 @@ Welcome to the Cascading wiki. See below for links to documentation and examples
 === Documentation ===
 
  * CascadingConcepts
+ * [http://www.cascading.org/javadoc/ JavaDoc]
 
 === Examples ===
  
