@@ -8,7 +8,27 @@ From the book, we have a list of critics, and we want to calculate their distanc
 Toby	Snakes on a Plane	4.5	You, Me and Dupree	1.0	Superman Returns	4.0
 }}}
 
-Next we use our reusable !CrossTab !PipeAssembly. Since it's re-usable, the field names are generic, but for clarity they have been annotated in the comments.
+To process a text file of critic rates, we simply create the following Flow.
+
+{{{
+    Tap source = new Dfs( new TextLine(), inputFileCritics );
+    Tap sink = new Dfs( new TextLine(), outputPathPearson + "/composite", true );
+
+    // unknown number of tab delimited elements of the format: name movie1 rate1 movie2 rate2 movieN rateN
+    Pipe pipe = new Each( "pearson", new Fields( "line" ), Regexes.TAB_SPLITTER );
+
+    // break out into name, movie, rate
+    pipe = new Each( pipe, new UnGroup( new Fields( "name", "movie", "rate" ), Fields.FIRST, 2 ) );
+
+    // name and rate against others of same movie
+    pipe = new PearsonDistance( pipe, new Fields( "name", "movie", "rate" ), new Fields( "name1", "name2", "distance" ) );
+
+    Flow flow = new FlowConnector().connect( source, sink, pipe );
+}}}
+
+To make that work, we must have a !PearsonDistance Pipe class. But for that to work, we will implement a simple !CrossTab base class than be re-used by different algorithms like Euclidean Distance.
+
+Since it's re-usable, the field names are generic, but for clarity they have been annotated in the comments.
 
 {{{
 /**
@@ -57,7 +77,7 @@ public class CrossTab extends PipeAssembly
     }
 }}}
 
-Next we extend the !CrossTab !PipeAssembly and make it our own.
+Lastly we extend the !CrossTab !PipeAssembly and make it our own.
 
 {{{
 public class PearsonDistance extends CrossTab
@@ -121,22 +141,4 @@ public class PearsonDistance extends CrossTab
       }
     }
   }
-}}}
-
-Finally, we assemble it and create a Flow.
-
-{{{
-    Tap source = new Dfs( new TextLine(), inputFileCritics );
-    Tap sink = new Dfs( new TextLine(), outputPathPearson + "/composite", true );
-
-    // unknown number of elements
-    Pipe pipe = new Each( "pearson", new Fields( "line" ), Regexes.TAB_SPLITTER );
-
-    // break into names and movies
-    pipe = new Each( pipe, new UnGroup( new Fields( "name", "movie", "rate" ), Fields.FIRST, 2 ) );
-
-    // name and rate against others of same movie
-    pipe = new PearsonDistance( pipe, new Fields( "name", "movie", "rate" ), new Fields( "name1", "name2", "distance" ) );
-
-    Flow flow = new FlowConnector().connect( source, sink, pipe );
 }}}
