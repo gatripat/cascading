@@ -1,0 +1,19 @@
+#summary Index of usage examples for Cascading.
+
+= Introduction =
+
+Details in using the examples provided as separate downloads.
+
+
+= Details =
+
+Two sample applications, with source are provided on the left. To give Cascading a quick whirl, download the cascading-alpha archive and one of the example applications. Untar them both into a new directory so that you have a 'cascading' and either 'loganalysis' or 'wordcount' directories in the same parent directory.
+
+Next, you must initialize your local Hadoop environment. For example, call
+{{{
+export HADOOP_HOME=~/hadoop
+export PATH=$HADOOP_HOME/bin/:$PATH
+}}}
+where `HADOOP_HOME` points to the root of your Hadoop installation.
+
+
