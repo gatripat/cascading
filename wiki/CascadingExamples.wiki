@@ -17,3 +17,9 @@ export HADOOP_HOME=~/hadoop
 export PATH=$HADOOP_HOME/bin/:$PATH
 }}}
 where `HADOOP_HOME` points to the root of your Hadoop installation.
+
+Finally, per the README.TXT file in your example application, call
+{{{
+ant jar
+hadoop jar ./build/example.jar args...
+}}}
