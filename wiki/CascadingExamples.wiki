@@ -4,8 +4,9 @@
 
 Details in using the examples provided as separate downloads.
 
-= Example Details
+= Example Details =
  * ApacheLogCascade
+ * CrawlDataWordCountCascade
 
 
 = Running =
