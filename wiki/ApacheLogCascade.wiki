@@ -70,3 +70,7 @@ Since these flow instances were connected into a Cascade instance, they can be e
     // execute the cascade, which in turn executes each flow in dependency order
     cascade.complete();
 }}}
+
+A simple visualization of our above assembly.
+
+http://code.google.com/p/cascading/w/ArrivalRateAssembly.png
