@@ -132,7 +132,7 @@ Finally, we assemble it and create a Flow.
     // unknown number of elements
     Pipe pipe = new Each( "pearson", new Fields( "line" ), Regexes.TAB_SPLITTER );
 
-    // break not names and movies
+    // break into names and movies
     pipe = new Each( pipe, new UnGroup( new Fields( "name", "movie", "rate" ), Fields.FIRST, 2 ) );
 
     // name and rate against others of same movie
