@@ -2,7 +2,7 @@
 
 = Introduction =
 
-Details in using the examples provided as separate <a href="http://code.google.com/p/cascading/downloads/list">downloads</a>.
+Details in using the examples provided as separate [http://code.google.com/p/cascading/downloads/list downloads].
 
 = Example Details =
  * ApacheLogCascade
