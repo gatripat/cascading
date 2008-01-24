@@ -2,7 +2,7 @@
 
 This is a slightly more complex Cascade example that uses pre-defined !PipeAssemblies.
 
-In short this example imports a text file of urls and page data into a Hadoop distributed filesystem. During the import, pdf files are removed from the stream, and a hacky ":nl:" string is replaced with new lines, just to keep things simple. 
+In short this example imports a text file of urls and page data into a Hadoop distributed filesystem. During the import, pdf files are removed from the stream, and a hacky ":nl:" string is replaced with new lines (used just to keep things simple). 
 
 Next the "page" values are parsed into valid xml, the body element is extracted, and then all the xhtml elements are removed. Finally each word is stuffed into a new tuple in the stream so they can be grouped on at the split.
 
