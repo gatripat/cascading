@@ -4,7 +4,7 @@
 
 === How do I convert String tuple values to their primitive types for more efficient storage? ===
 
- Use the c.o.Identity class to coerce values to new types. If a tuple value is "1234", you could coerce it to a Integer. For example:
+ Use the `c.o.Identity` class to coerce values to new types. If a tuple value is "1234", you could coerce it to a Integer. For example:
 {{{
   pipe = new Each( pipe, new Fields("index_string"), new Identity( new Fields("index"), Integer.class), Fields.ALL );
 }}}
@@ -29,7 +29,7 @@
 
 === How do I create reusable assemblies? ===
 
- Subclass c.p.PipeAssembly. In the constructor assemble your reusable assembly using parameters passed in. Common parameters are the 'previous' pipe you are attaching to, or simply the 'name' of this assembly. Before your constructor returns, you must pass all the tail ends of your assembly to setTails( Pipe... tails ). This allows your PipeAssembly class to be attached to by subsequent assemblies. For example:
+ Subclass `c.p.PipeAssembly`. In the constructor assemble your reusable assembly using parameters passed in. Common parameters are the 'previous' pipe you are attaching to, or simply the 'name' of this assembly. Before your constructor returns, you must pass all the tail ends of your assembly to `setTails( Pipe... tails )`. This allows your `PipeAssembly` class to be attached to by subsequent assemblies. For example:
 {{{
   public SomeAssembly( Pipe previous, Fields argumentFieldSelector, Fields fieldDeclaration )
     {
