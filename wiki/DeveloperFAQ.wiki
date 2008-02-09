@@ -5,7 +5,16 @@
 === How do I convert String tuple values to their primitive types for more efficient storage? ===
 
  Use the c.o.Identity class to coerce values to new types. If a tuple value is "1234", you could coerce it to a Integer. For example:
-
 {{{
   pipe = new Each( pipe, new Fields("index_string"), new Identity( new Fields("index"), Integer.class), Fields.ALL );
+}}}
+
+=== How do I create my own filter class? ===
+
+ Your new filter must extend c.o.Operation and implement c.o.Filter. Your implementation must always declare the fields Fields.ALL. For example:
+{{{
+  public ANewFilter()
+    {
+    super( ANY, Fields.ALL );
+    }
 }}}
