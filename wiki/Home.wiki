@@ -8,6 +8,7 @@ Welcome to the Cascading wiki. See below for links to documentation and examples
 
  * CascadingConcepts
  * [http://www.cascading.org/javadoc/ JavaDoc]
+ * DeveloperFAQ
 
 === Examples ===
  
