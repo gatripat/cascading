@@ -18,3 +18,9 @@
     super( ANY, Fields.ALL );
     }
 }}}
+
+== Not yet released, available via svn ==
+
+=== How do I print my tuple stream for debugging? 
+
+ Use the c.o.Debug filter. By default it will print your tuple stream to stderr. 
