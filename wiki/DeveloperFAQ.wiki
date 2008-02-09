@@ -31,7 +31,7 @@
 
  Subclass c.p.PipeAssembly. In the constructor assemble your reusable assembly using parameters passed in. Common parameters are the 'previous' pipe you are attaching to, or simply the 'name' of this assembly. Before your constructor returns, you must pass all the tail ends of your assembly to setTails( Pipe... tails ). This allows your PipeAssembly class to be attached to by subsequent assemblies. For example:
 {{{
-  public CrossTab( Pipe previous, Fields argumentFieldSelector, CrossTabOperation crossTabOperation, Fields fieldDeclaration )
+  public SomeAssembly( Pipe previous, Fields argumentFieldSelector, Fields fieldDeclaration )
     {
     // rename all fields for internal use
     Pipe pipe = new Each( previous, argumentFieldSelector, new Identity( new Fields( "n", "l", "v" ) ) );
