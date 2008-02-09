@@ -11,7 +11,7 @@
 
 === What do all these constants on the c.t.Fields class mean? ===
 
- See the javadoc for details. In short, they represent logical groups of fields, so that pipe assemblies don't need to hard code field names if they perform common operations. For example, Fields.ALL represents all the fields in the current stream, i.e. a wild card. Fields.KEYS represent the grouping fields used by a previous c.p.Group pipe.
+ See the javadoc for details. In short, they represent logical groups of fields, so that pipe assemblies don't need to hard code field names if they perform common operations. For example, `Fields.ALL` represents all the fields in the current stream, i.e. a wild card. `Fields.KEYS` represent the grouping fields used by a previous `c.p.Group` pipe.
 
 === Can I reference tuple values by position instead of by field name? ===
 
@@ -19,7 +19,7 @@
 
 === How do I create my own filter class? ===
 
- Your new filter must extend c.o.Operation and implement c.o.Filter. Your implementation must always declare the fields Fields.ALL. For example:
+ Your new filter must `extends c.o.Operation` and `implements c.o.Filter`. Your implementation must always declare the fields `Fields.ALL`. For example:
 {{{
   public SomeFilter()
     {
