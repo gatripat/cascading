@@ -21,7 +21,7 @@
 
  Your new filter must extend c.o.Operation and implement c.o.Filter. Your implementation must always declare the fields Fields.ALL. For example:
 {{{
-  public ANewFilter()
+  public SomeFilter()
     {
     super( ANY, Fields.ALL );
     }
