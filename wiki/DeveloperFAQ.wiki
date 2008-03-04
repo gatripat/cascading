@@ -52,3 +52,12 @@
 === How do I print my tuple stream for debugging? ===
 
  Use the c.o.Debug filter. By default it will print your tuple stream to stderr. 
+
+=== Can I enable DEBUG logging without updating every log4j.properties file in my cluster? ===
+
+  Yes. Set this property on your `JobConf`. 
+{{{
+jobConf.set("log4j.logger","logger1=LEVEL,logger2=LEVEL");
+}}}
+
+ Where logger1 could be `cascading` and LEVEL could be `DEBUG`. Note only the loggers in the task mappers or task reducers will be configured. 
