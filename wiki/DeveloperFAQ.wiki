@@ -47,8 +47,6 @@
 }}}
 
 
-== Not yet released, available via svn ==
-
 === How do I print my tuple stream for debugging? ===
 
  Use the c.o.Debug filter. By default it will print your tuple stream to stderr. 
@@ -61,3 +59,7 @@ jobConf.set("log4j.logger","logger1=LEVEL,logger2=LEVEL");
 }}}
 
  Where logger1 could be `cascading` and LEVEL could be `DEBUG`. Note only the loggers in the task mappers or task reducers will be configured. 
+
+== Not yet released, available via svn ==
+
+ None
