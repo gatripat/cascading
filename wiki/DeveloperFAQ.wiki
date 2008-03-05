@@ -15,7 +15,7 @@
 
 === Can I reference tuple values by position instead of by field name? ===
 
- Yes. Indexing starts at 0. Thus new Fields( 3 ) would select the 4th item in a Tuple. You can also use relative positions. -1 would return the last, and -2 the second to last value s in a Tuple. Field names and positions can be used together, new Fields( "name" , -1 ).
+ Yes. Indexing starts at 0. Thus new Fields( 3 ) would select the 4th item in a Tuple. You can also use relative positions. -1 would return the last, and -2 the second to last value in a Tuple. Field names and positions can be used together, new Fields( "name" , -1 ).
 
 === How do I create my own filter class? ===
 
