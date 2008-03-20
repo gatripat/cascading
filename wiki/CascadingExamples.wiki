@@ -28,3 +28,5 @@ Finally, per the README.TXT file in your example application, call
 ant jar
 hadoop jar ./build/example.jar args...
 }}}
+
+Note these example currently do not work on a cluster as they access files on the local filesystem.
