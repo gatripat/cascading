@@ -29,4 +29,4 @@ ant jar
 hadoop jar ./build/example.jar args...
 }}}
 
-Note these example currently do not work on a cluster as they access files on the local filesystem.
+Note these examples work great with a cluster enabled. So if some files/directories don't show up in the current directory, check your HDFS user directory.
