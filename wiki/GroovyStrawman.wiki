@@ -72,8 +72,7 @@ One option is to provide a 'builder' that allows for the construction of pipe as
       {
         eachTuple(args: ["f1"], res: ["f1", "g1"])
           {
-            // how on earth do you pass a int[] as an argument?
-            operation(new RegexParser(new Fields("g1"), ".*", [0, 1].toArray(new int[0])));
+            operation(new RegexParser(new Fields("g1"), ".*", [0, 1] as Integer[]));
           }
 
         group(["f1"])
