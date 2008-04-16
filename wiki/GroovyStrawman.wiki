@@ -18,7 +18,7 @@ Here are two extremes
           {
             eachTuple(args: ["f1"], res: ["f1", "g1"])
               {
-                regexParser(decl: ["g1"], pattern: /.*/, groups: [0, 1])
+                regexParser(decl: ["g1"], pattern: ".*":, groups: [0, 1])
               }
 
             group(["f1"])
@@ -57,7 +57,7 @@ Here are two extremes
       {
         source(path: "input/path", delete: true, fields: ["f1"])
 
-        regexParser(args: ["f1"], res: ["f1", "g1"], decl: ["g1"], pattern: /.*/, groups: [0, 1])
+        regexParser(args: ["f1"], res: ["f1", "g1"], decl: ["g1"], pattern: ".*", groups: [0, 1])
         group(by: ["f1"], sort: ["g1"])
         sum(args: ["g1"], res: ["f1", "sum"])
 
@@ -73,7 +73,7 @@ Here are two extremes
           {
             eachTuple(args: ["f1"], results: ["f1", "g1"])
               {
-                regexParser(declared: ["g1"], pattern: /.*/, groups: [0, 1])
+                regexParser(declared: ["g1"], pattern: ".*", groups: [0, 1])
               }
           }
 
@@ -81,7 +81,7 @@ Here are two extremes
           {
             eachTuple(args: ["f1"], results: ["f1", "g2"])
               {
-                regexParser(declared: ["g2"], pattern: /.*/, groups: [0, 1])
+                regexParser(declared: ["g2"], pattern: ".*", groups: [0, 1])
               }
           }
 
@@ -100,14 +100,14 @@ Here are two extremes
       {
         eachTuple(args: ["f0"], res: ["f1"])
           {
-            regexParser(decl: ["f1"], pattern: /.*/, groups: [0, 1])
+            regexParser(decl: ["f1"], pattern: ".*", groups: [0, 1])
           }
 
         branch("lhs")
           {
             eachTuple(args: ["f1"], results: ["f1", "g1"])
               {
-                regexParser(declared: ["g1"], pattern: /.*/, groups: [0, 1])
+                regexParser(declared: ["g1"], pattern: ".*", groups: [0, 1])
               }
 
             group(["f1"])
@@ -122,7 +122,7 @@ Here are two extremes
           {
             eachTuple(args: ["f1"], results: ["f1", "g2"])
               {
-                regexParser(declared: ["g2"], pattern: /.*/, groups: [0, 1])
+                regexParser(declared: ["g2"], pattern: ".*", groups: [0, 1])
               }
 
             group(["f1"])
