@@ -50,6 +50,7 @@ Here are two extremes
       }
 }}}
 
+
 == Fully Abbreviated ==
 
 {{{
@@ -65,6 +66,25 @@ Here are two extremes
       }
 }}}
 
+== Custom Operations ==
+{{{
+    def builder = new CascadingBuilder();
+
+    def assembly = builder.assembly(name: "path")
+      {
+        eachTuple(args: ["f1"], res: ["f1", "g1"])
+          {
+            operation(new RegexParser(new Fields("g1"), ".*", [0, 1].toArray(new int[0])));
+          }
+
+        group(["f1"])
+
+        everyGroup(args: ["g1"], res: ["f1", "sum"])
+          {
+            sum()
+          }
+      }
+}}}
 == Assembly Branching - Join ==
 {{{
     def assembly = builder.assembly(name: "path")
@@ -133,25 +153,5 @@ Here are two extremes
               }
           }
 
-      }
-}}}
-
-== Custom Operations ==
-{{{
-    def builder = new CascadingBuilder();
-
-    def assembly = builder.assembly(name: "path")
-      {
-        eachTuple(args: ["f1"], res: ["f1", "g1"])
-          {
-            operation(new RegexParser(new Fields("g1"), ".*", [0, 1].toArray(new int[0])));
-          }
-
-        group(["f1"])
-
-        everyGroup(args: ["g1"], res: ["f1", "sum"])
-          {
-            sum()
-          }
       }
 }}}
