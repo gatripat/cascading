@@ -1,0 +1,66 @@
+#summary Page for collaborating on possible Groovy syntax.
+
+= Groovy =
+
+We are considering adopting the Groovy shell and providing helper scripting methods.
+
+One option is to provide a 'builder' that allows for the construction of pipe assemblies, tap maps, flows and cascades.
+
+Here are two extremes
+
+== Fully Nested ==
+{{{
+    def builder = new CascadingBuilder();
+
+    def flow = builder.flow("flow")
+      {
+        assembly(name: "path")
+          {
+            eachTuple(args: ["f1"], res: ["f1", "g1"])
+              {
+                regexParser(decl: ["g1"], pattern: /.*/, groups: [0, 1])
+              }
+
+            group(["f1"])
+
+            everyGroup(args: ["g1"], res: ["f1", "sum"])
+              {
+                sum()
+              }
+          }
+
+        map()
+          {
+            source(name: "path")
+              {
+                hfs("input/path/", delete: true)
+                  {
+                    sequence(["f1"])
+                  }
+              }
+
+            sink(name: "path")
+              {
+                lfs("output/path", delete: true)
+                  {
+                    text()
+                  }
+              }
+          }
+      }
+}}}
+
+== Fully Abbreviated ==
+
+{{{
+    def flow = builder.flow("flow")
+      {
+        source(path: "input/path", delete: true, fields: ["f1"])
+
+        regexParser(args: ["f1"], res: ["f1", "g1"], decl: ["g1"], pattern: /.*/, groups: [0, 1])
+        group(by: ["f1"], sort: ["g1"])
+        sum(args: ["g1"], res: ["f1", "sum"])
+
+        sink(path: "file://output/path", scheme: text())
+      }
+}}}
