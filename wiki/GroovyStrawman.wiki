@@ -64,3 +64,74 @@ Here are two extremes
         sink(path: "file://output/path", scheme: text())
       }
 }}}
+
+== Assembly Branching - Join ==
+{{{
+    def assembly = builder.assembly(name: "path")
+      {
+        branch("lhs")
+          {
+            eachTuple(args: ["f1"], results: ["f1", "g1"])
+              {
+                regexParser(declared: ["g1"], pattern: /.*/, groups: [0, 1])
+              }
+          }
+
+        branch("rhs")
+          {
+            eachTuple(args: ["f1"], results: ["f1", "g2"])
+              {
+                regexParser(declared: ["g2"], pattern: /.*/, groups: [0, 1])
+              }
+          }
+
+        join(lhs: ["f1"], rhs: ["f1"], declared: ["f1", "g1", "f2", "g2"])
+
+        everyGroup(args: ["g1"], results: ["f1", "sum"])
+          {
+            sum()
+          }
+      }
+}}}
+
+== Assembly Branching - Split ==
+{{{
+    def assembly = builder.assembly(name: "path")
+      {
+        eachTuple(args: ["f0"], res: ["f1"])
+          {
+            regexParser(decl: ["f1"], pattern: /.*/, groups: [0, 1])
+          }
+
+        branch("lhs")
+          {
+            eachTuple(args: ["f1"], results: ["f1", "g1"])
+              {
+                regexParser(declared: ["g1"], pattern: /.*/, groups: [0, 1])
+              }
+
+            group(["f1"])
+
+            everyGroup(args: ["g1"], results: ["f1", "sum"])
+              {
+                sum()
+              }
+          }
+
+        branch("rhs")
+          {
+            eachTuple(args: ["f1"], results: ["f1", "g2"])
+              {
+                regexParser(declared: ["g2"], pattern: /.*/, groups: [0, 1])
+              }
+
+            group(["f1"])
+
+            everyGroup(args: ["g2"], results: ["f1", "sum"])
+              {
+                sum()
+              }
+          }
+
+      }
+}}}
