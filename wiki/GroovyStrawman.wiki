@@ -6,8 +6,6 @@ We are considering adopting the Groovy shell and providing helper scripting meth
 
 One option is to provide a 'builder' that allows for the construction of pipe assemblies, tap maps, flows and cascades.
 
-Here are two extremes
-
 == Fully Nested ==
 {{{
     def builder = new CascadingBuilder();
