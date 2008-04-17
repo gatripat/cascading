@@ -31,7 +31,7 @@ One option is to provide a 'builder' that allows for the construction of pipe as
           {
             source(name: "path")
               {
-                hfs("input/path/", delete: true)
+                hfs("input/path/")
                   {
                     sequence(["f1"])
                   }
@@ -54,7 +54,7 @@ One option is to provide a 'builder' that allows for the construction of pipe as
 {{{
     def flow = builder.flow("flow")
       {
-        source(path: "input/path", delete: true, fields: ["f1"])
+        source(path: "input/path", fields: ["f1"])
 
         regexParser(args: ["f1"], res: ["f1", "g1"], decl: ["g1"], pattern: ".*", groups: [0, 1])
         group(by: ["f1"], sort: ["g1"])
