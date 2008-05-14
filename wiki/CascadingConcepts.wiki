@@ -2,6 +2,8 @@
 
 = Concepts Used in Cascading =
 
+Before reading on, check out the [http://www.cascading.org/documentation/Cascading.pdf Cascading presentation] (PDF) and [http://www.cascading.org//about.html About] page.
+
 == Tuple ==
 A `Tuple` represents a single set of named values. The names are fields in the `Tuple`. Consider a `Tuple` the same as a data base record where every value is a column in that table. A `Tuple` stream would be a set of `Tuple` instances, which are passed consecutively through a `Pipe` assembly.  
 
