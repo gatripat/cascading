@@ -2,6 +2,8 @@
 
 = Developer FAQ =
 
+Also see our evolving [http://www.cascading.org/documentation/cook-book.html Cook Book] on the main site.
+
 === How do I convert String tuple values to their primitive types for more efficient storage? ===
 
  Use the `c.o.Identity` class to coerce values to new types. If a tuple value is "1234", you could coerce it to a Integer. For example:
