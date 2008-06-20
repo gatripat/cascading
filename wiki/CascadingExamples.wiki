@@ -9,6 +9,7 @@ Details in using the examples provided as separate [http://code.google.com/p/cas
  * CrawlDataWordCountCascade
  * PearsonDistanceAssembly
 
+If Groovy scripting is more your style, see our [http://www.cascading.org/documentation/groovy.html Groovy syntax page].
 
 = Running =
 
