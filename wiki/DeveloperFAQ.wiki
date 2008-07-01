@@ -64,7 +64,7 @@ jobConf.set("log4j.logger","logger1=LEVEL,logger2=LEVEL");
 
 === Can I print out my Flow? ===
 
-Yes. You can print your Flow instance to a .dot file for import into a graphics package like OmniGraffle. What results is a graph representation of the underlying pipeline, and the fields being passed to each pipe element. After the Group element, you can see the grouping fields, and the value fields expected by the next Operator.
+ Yes. You can print your Flow instance to a .dot file for import into a graphics package like OmniGraffle. What results is a graph representation of the underlying pipeline, and the fields being passed to each pipe element. After the Group element, you can see the grouping fields, and the value fields expected by the next Operator.
 
 
 
