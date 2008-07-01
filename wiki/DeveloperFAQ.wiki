@@ -62,6 +62,12 @@ jobConf.set("log4j.logger","logger1=LEVEL,logger2=LEVEL");
 
  Where logger1 could be `cascading` and LEVEL could be `DEBUG`. Note only the loggers in the task mappers or task reducers will be configured. 
 
+=== Can I print out my Flow? ===
+
+Yes. You can print your Flow instance to a .dot file for import into a graphics package like OmniGraffle. What results is a graph representation of the underlying pipeline, and the fields being passed to each pipe element. After the Group element, you can see the grouping fields, and the value fields expected by the next Operator.
+
+
+
 == Not yet released, available via svn ==
 
 === None ===
