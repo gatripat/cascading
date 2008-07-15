@@ -21,7 +21,7 @@ Also see our evolving [http://www.cascading.org/documentation/cook-book.html Coo
 
 === How do I create my own filter class? ===
 
- Your new filter must `extends c.o.Operation` and `implements c.o.Filter`. Your implementation must always declare the fields `Fields.ALL`. For example:
+ Your new filter should `extend c.o.BaseOperation` and must `implements c.o.Filter`. Your implementation must always declare the fields `Fields.ALL`. For example:
 {{{
   public SomeFilter()
     {
