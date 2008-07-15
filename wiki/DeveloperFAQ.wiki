@@ -66,7 +66,17 @@ jobConf.set("log4j.logger","logger1=LEVEL,logger2=LEVEL");
 
  Yes. You can print your Flow instance to a .dot file for import into a graphics package like OmniGraffle. What results is a graph representation of the underlying pipeline, and the fields being passed to each pipe element. After the Group element, you can see the grouping fields, and the value fields expected by the next Operator.
 
+=== How do I filter out duplicate Tuples in a stream? ===
+ 
+ In order to 'unique' the stream to get distinct tuples, use the following assembly.
+{{{
+// group on all values
+pipe = new GroupBy( pipe, Fields.ALL );
+// only take the first value in the grouping, ignore the rest
+pipe = new Every( pipe, Fields.ALL, new First(), Fields.RESULTS );
+}}}
 
+ It's important to note that the `Each` pipe always replaces the values in the stream with `Function` results, by default. The `Every` pipe always appends `Aggregator` results. Using `Fields.RESULTS` tells `Every` to replace the tuple values. `Fields.ALL` would append them, and is the defualt for `Every`.
 
 == Not yet released, available via svn ==
 
