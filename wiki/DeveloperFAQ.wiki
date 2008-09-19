@@ -21,7 +21,7 @@ Also see our evolving [http://www.cascading.org/documentation/cook-book.html Coo
 
 === How do I create reusable assemblies? ===
 
- Subclass `c.p.PipeAssembly`. In the constructor assemble your reusable assembly using parameters passed in. Common parameters are the 'previous' pipe you are attaching to, or simply the 'name' of this assembly. Before your constructor returns, you must pass all the tail ends of your assembly to `setTails( Pipe... tails )`. This allows your `PipeAssembly` class to be attached to by subsequent assemblies. For example:
+ Subclass `c.p.SubAssembly`. In the constructor assemble your reusable assembly using parameters passed in. Common parameters are the 'previous' pipe you are attaching to, or simply the 'name' of this assembly. Before your constructor returns, you must pass all the tail ends of your assembly to `setTails( Pipe... tails )`. This allows your `SubAssembly` class to be attached to by subsequent assemblies. For example:
 {{{
   public SomeAssembly( Pipe previous, Fields argumentFieldSelector, Fields fieldDeclaration )
     {
