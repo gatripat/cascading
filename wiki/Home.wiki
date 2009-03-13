@@ -2,6 +2,10 @@
 
 == Introduction ==
 
+These pages are rather stale, please visit the Cascading site for more up-to-data information.
+
+[http://www.cascading.org/ Cascading]
+
 Welcome to the Cascading wiki. See below for links to documentation and examples.
 
 === Documentation ===
